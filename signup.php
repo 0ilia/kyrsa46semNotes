@@ -47,18 +47,20 @@ class Reg
             $user = R::dispense('users');
             $user->login = trim(htmlentities($_POST["login"]));
             $user->email = trim(htmlentities($_POST["email"]));
-            $user->password = password_hash(htmlspecialchars($password), PASSWORD_DEFAULT);
+            $user->password = password_hash(htmlspecialchars($password), PASSWORD_BCRYPT);
             $user->cookie = $this->generateSalt();
 
             R::store($user);
 
+            $_SESSION['auth'] = true;
             $_SESSION['auth'] = true;
             $_SESSION['login'] = $user->login;
             $key = $user->cookie;
 
             setcookie('login', $user->login, time() + 60 * 60 * 24 * 30);
             setcookie('key', $key, time() + 60 * 60 * 24 * 30);
-            header('Location: /');
+            header('Location:  /');
+
         } else {
             Errors:
             echo array_shift($errors);
@@ -73,18 +75,3 @@ if (isset($_POST['input_reg'])) {
 }
 
 
-?>
-
-<form action="/signup.php" method="post">
-    <label for="login">Логин:</label><br>
-    <input name="login" id="login" value="<?= $_POST['login']; ?>" type="text"><br>
-
-    <label for="email">Ваш E-Mail:</label><br>
-    <input name="email" id="email" value="<?= $_POST['email']; ?>" type="email"><br>
-    <label for="password">Пароль:</label><br>
-    <input name="password" type="password" value="<?= $_POST['password']; ?>" id="password"><br>
-    <label for="confirm_password">Повторите пароль:</label><br>
-    <input name="password2" value="<?= $_POST['password2']; ?>" type="password" id="confirm_password"><br> <br>
-    <input name="input_reg" type="submit">
-    <a href="/"><-Назад</a>
-</form>

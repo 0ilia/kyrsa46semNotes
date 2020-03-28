@@ -9,3 +9,8 @@ a{
     cursor: pointer;
     color: darkmagenta;
 }
+
+#myReg{
+    display: none;
+}
+
