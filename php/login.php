@@ -1,5 +1,5 @@
 <?php
-require_once "bd.php";
+require_once "../bd.php";
 
 class Aut
 {
@@ -26,7 +26,10 @@ class Aut
                 setcookie('key', $key, time() + 60 * 60 * 24 * 30); //случайная строка
                 $user->cookie = $key;
                 R::store($user);
-                header('Location: /');
+              //  header("refresh: 1");
+                //header('Location: /');
+               // header('Refresh: 4; URL=/');
+
             }
         } else {
             $error[] = "Логин или пароль не верный";
@@ -38,10 +41,10 @@ class Aut
     }
 
 }
-
 $aut = new Aut();
-if (isset($_POST['inputAut'])) {
+if (isset($_POST['login']) && isset($_POST['password'])) {
     $aut->confirmUser(trim(htmlspecialchars($_POST['login'])), htmlspecialchars($_POST['password']));
+    echo  "Вы вошли";
 
 }
 
