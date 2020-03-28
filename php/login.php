@@ -29,7 +29,7 @@ class Aut
               //  header("refresh: 1");
                 //header('Location: /');
                // header('Refresh: 4; URL=/');
-
+                echo  "Вы вошли";
             }
         } else {
             $error[] = "Логин или пароль не верный";
@@ -44,7 +44,7 @@ class Aut
 $aut = new Aut();
 if (isset($_POST['login']) && isset($_POST['password'])) {
     $aut->confirmUser(trim(htmlspecialchars($_POST['login'])), htmlspecialchars($_POST['password']));
-    echo  "Вы вошли";
+
 
 }
 
