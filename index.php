@@ -36,8 +36,8 @@ if ((!isset($_SESSION['auth'])) && (!isset($_SESSION['login']))) { ?>
     <div id="wrapper">
         <div id="myAut">
             <form id="signinFormId" autocomplete="off">
-                <input type="text" id="login" name="login" placeholder="username"/>
-                <input type="password" id="password" name="password" placeholder="password"/>
+                <input type="text" id="loginsigninId" name="login" placeholder="username"/>
+                <input type="password" id="passwordigninId" name="password" placeholder="password"/>
                 <button name="inputAut" type="submit" id="buttonSubmitSigninFormID">&#xf0da;</button>
                 <p class="register"><a class="openRegForm" href="#">Регистрация</a></p>
             </form>
@@ -45,16 +45,18 @@ if ((!isset($_SESSION['auth'])) && (!isset($_SESSION['login']))) { ?>
 
         <div id="myReg">
             <form id="regFormId" autocomplete="off">
-                <input name="login" id="login" type="text" placeholder="username">
-                <input name="email" id="email" type="text" placeholder="email">
-                <input name="password" type="password"  id="password" placeholder="password">
-                <input name="password2" type="password" id="confirm_password" placeholder="confirm password">
+                <input name="login" id="loginregId" type="text" placeholder="username">
+                <input name="email" id="emailregId" type="text" placeholder="email">
+                <input name="password" type="password" id="passwordregId" placeholder="password">
+                <input name="password2" type="password" id="confirm_passwordregId" placeholder="confirm password">
                 <button name="input_reg" type="submit" id="buttonSubmitregFormId">&#xf0da;</button>
                 <p class="auth"><a class="openAuthForm" href="#">Войти</a></p>
             </form>
         </div>
-        <p id="errorId"></p>
+                    <p id="errorId"></p>
+
     </div>
+
     <!-- <h3><a href="login.php" id="authorization">Авторизация </a></h3>-->
 <? } else {
     echo "Привет," . $_SESSION['login'];

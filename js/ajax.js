@@ -11,8 +11,8 @@ $(document).ready(function () {
 
                 if (data === "Вы вошли") {
                     document.location.href = '/';
-                    $("#login").val("");
-                    $("#password").val("");
+                    $("#loginsigninId").val("");
+                    $("#passwordigninId").val("");
                 } else {
 
                     $('#errorId').html(data);
@@ -32,14 +32,15 @@ $(document).ready(function () {
 
                 if (data === "Вы зарегистрированы") {
                     document.location.href = '/';
+                    $("#loginregId").val("");
+                    $("#emailregId").val("");
+                    $("#confirm_passwordregId").val("");
+                    $("#passwordregId").val("");
                 }else {
-                    $("#login").val("");
-                    $("#email").val("");
-                    $("#confirm_password").val("");
-                    $("#password").val("");
+                    $('#errorId').html(data);
+
                 }
 
-                $('#errorId').html(data);
             }
         });
     });

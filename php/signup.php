@@ -17,7 +17,6 @@ class Reg
     {
         $errors = array();
 
-
         if (trim($login) == '') {
             $errors[] = 'Введите логин';
             goto Errors;
@@ -59,7 +58,8 @@ class Reg
 
             setcookie('login', $user->login, time() + 60 * 60 * 24 * 30);
             setcookie('key', $key, time() + 60 * 60 * 24 * 30);
-       //     header('Location:  /');
+            //     header('Location:  /');
+            echo "Вы зарегистрированы";
 
         } else {
             Errors:
@@ -69,9 +69,8 @@ class Reg
 }
 
 $register = new Reg();
-if (isset($_POST["login"]) && isset($_POST["email"])&& isset($_POST['password'])&& isset($_POST['password2'])) {
+if (isset($_POST["login"]) && isset($_POST["email"]) && isset($_POST['password']) && isset($_POST['password2'])) {
 
-    echo  "Вы зарегистрированы";
     $register->addUser($_POST["login"], $_POST["email"], $_POST['password'], $_POST['password2']);
 }
 

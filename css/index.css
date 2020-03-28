@@ -14,3 +14,8 @@ a{
     display: none;
 }
 
+#errorId{
+    color: rgb(245, 66, 105);
+    padding-left: 2%;
+    padding-top: 2%;;
+}

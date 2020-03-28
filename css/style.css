@@ -23,8 +23,14 @@ h1{
 }
 
 /* === Sign in Form === */
-#signinFormId,#regFormId {
+#signinFormId{
 	height: 90px;
+	width: 300px;
+	border-radius: 8px;
+	position: relative;
+}
+#regFormId{
+	height: 180px;
 	width: 300px;
 	border-radius: 8px;
 	position: relative;
