@@ -27,6 +27,14 @@ if (empty($_SESSION['auth'])) {
         if ($user->cookie == $key) {
             $_SESSION['auth'] = true;
             $_SESSION['login'] = $user->login;
+
+
+            $key = generateSalt();
+            $user->cookie = $key;
+            setcookie('login', $user->login, time() + 60 * 60 * 24 * 30); //логин
+            setcookie('key', $key, time() + 60 * 60 * 24 * 30); //случайная строка
+
+            R::store($user);
         }
 
     }

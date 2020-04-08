@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>test.php</h1>
+<script>
+    function notifyMe () {
+        var notification = new Notification ("Все еще работаешь?", {
+            tag : "ache-mail",
+            body : "Пора сделать паузу и отдохнуть"
+           // icon : "https://itproger.com/img/notify.png"
+        });
+    }
+
+    function notifSet () {
+        if (!("Notification" in window))
+            alert ("Ваш браузер не поддерживает уведомления.");
+        else if (Notification.permission === "granted")
+            setTimeout(notifyMe, 3000);
+        else if (Notification.permission !== "denied") {
+            Notification.requestPermission (function (permission) {
+                if (!('permission' in Notification))
+                    Notification.permission = permission;
+                if (permission === "granted")
+                    setTimeout(notifyMe, 3000);
+            });
+        }
+    }
+</script>
+<input type="button" onclick="notifSet()" value="Notification">
+
+</body>
+</html>
+
+
+<?php
+require_once "../bd.php";
+
+require_once "../libs/genSalt.php";
+
+$login = trim(htmlspecialchars($_POST['login']));
+$password = htmlspecialchars($_POST['password']);
+
+if (isset($login) && isset($password)) {
+
+
+    $error = array();
+    $user = R::findOne('users', 'login = ?', array($login));
+    if ($user) {
+        if (password_verify($password, $user->password)) {
+$_SESSION['auth'] = true;
+$_SESSION['login'] = $user->login;
+$key = generateSalt();
+
+setcookie('login', $user->login, time() + 60 * 60 * 24 * 30); //логин
+setcookie('key', $key, time() + 60 * 60 * 24 * 30); //случайная строка
+$user->cookie = $key;
+R::store($user);
+//  header("refresh: 1");
+//header('Location: /');
+// header('Refresh: 4; URL=/');
+echo "Вы вошли";
+}
+} else {
+$error[] = "Логин или пароль не верный";
+}
+
+if (!empty($error)) {
+echo array_shift($error);
+}
+
+
+confirmUser(trim(htmlspecialchars($_POST['login'])), htmlspecialchars($_POST['password']));
+
+}
+
