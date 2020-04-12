@@ -25,6 +25,9 @@ class Aut
                // header('Refresh: 4; URL=/');
                 echo  "Вы вошли";
             }
+            else {
+            $error[] = "Логин или пароль не верный";
+        }
         } else {
             $error[] = "Логин или пароль не верный";
         }
