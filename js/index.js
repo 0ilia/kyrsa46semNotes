@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $(".beloremepsum").css("display", "none");
+
     $(".openRegForm").click(function () {
         $("#myReg").css("display", "block");
         $("#myAut").css("display", "none");
@@ -15,3 +17,4 @@ $(document).ready(function () {
 
     });
 });
+

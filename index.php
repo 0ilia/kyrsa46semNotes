@@ -1,13 +1,9 @@
-<?php
-require_once "bd.php";
-
-?>
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width,index user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=dvice-width,index user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
@@ -15,67 +11,44 @@ require_once "bd.php";
 </head>
 <body>
 
-<?
-if (empty($_SESSION['auth'])) {
-    if ((!empty($_COOKIE['login'])) && (!empty($_COOKIE['key']))) {
-
-        $login = $_COOKIE['login'];
-        $key = $_COOKIE['key']; //ключ из кук (аналог пароля, в базе поле cookie)
-        $user = R::findOne('users', 'login = ?', array($login));
-
-
-        if ($user->cookie == $key) {
-            $_SESSION['auth'] = true;
-            $_SESSION['login'] = $user->login;
-
-
-            $key = generateSalt();
-            $user->cookie = $key;
-            setcookie('login', $user->login, time() + 60 * 60 * 24 * 30); //логин
-            setcookie('key', $key, time() + 60 * 60 * 24 * 30); //случайная строка
-
-            R::store($user);
-        }
-
-    }
-}
-if ((!isset($_SESSION['auth'])) && (!isset($_SESSION['login']))) { ?>
-
-    <div id="wrapper">
-        <div id="myAut">
-            <form id="signinFormId" autocomplete="off">
-                <input type="text" id="loginsigninId" name="login" placeholder="username"/>
-                <input type="password" id="passwordigninId" name="password" placeholder="password"/>
-                <button name="inputAut" type="submit" id="buttonSubmitSigninFormID">&#xf0da;</button>
-                <p class="register"><a class="openRegForm" href="#">Регистрация</a></p>
-            </form>
-        </div>
-
-        <div id="myReg">
-            <form id="regFormId" autocomplete="off">
-                <input name="login" id="loginregId" type="text" placeholder="username">
-                <input name="email" id="emailregId" type="text" placeholder="email">
-                <input name="password" type="password" id="passwordregId" placeholder="password">
-                <input name="password2" type="password" id="confirm_passwordregId" placeholder="confirm password">
-                <button name="input_reg" type="submit" id="buttonSubmitregFormId">&#xf0da;</button>
-                <p class="auth"><a class="openAuthForm" href="#">Войти</a></p>
-            </form>
-        </div>
-                    <p id="errorId"></p>
-
+<div id="wrapper">
+    <div id="myAut">
+        <form id="signinFormId" autocomplete="off">
+            <input type="text" id="loginsigninId" name="login" placeholder="username"/>
+            <input type="password" id="passwordigninId" name="password" placeholder="password"/>
+            <button name="inputAut" type="submit" id="buttonSubmitSigninFormID">&#xf0da;</button>
+            <p class="register"><a class="openRegForm" href="#">Регистрация</a></p>
+        </form>
     </div>
 
-    <!-- <h3><a href="login.php" id="authorization">Авторизация </a></h3>-->
-<? } else {
-    echo "Привет," . $_SESSION['login'];
-    ?>
-    <form action="logout.php" method="post" id="exitForm">
-        <input type="submit" value="Выход" name="logout">
-    </form>
-<? } ?>
-<script src="js/jquery.min.js"></script>
-<script src="js/index.js"></script>
-<script src="js/ajax.js"></script>
+    <div id="myReg">
+        <form id="regFormId" autocomplete="off">
+            <input name="login" id="loginregId" type="text" placeholder="username">
+            <input name="email" id="emailregId" type="text" placeholder="email">
+            <input name="password" type="password" id="passwordregId" placeholder="password">
+            <input name="password2" type="password" id="confirm_passwordregId" placeholder="confirm password">
+            <button name="input_reg" type="submit" id="buttonSubmitregFormId">&#xf0da;</button>
+            <p class="auth"><a class="openAuthForm" href="#">Войти</a></p>
+        </form>
+    </div>
+    <p id="errorId"></p>
+
+</div>
+
+
+</div>
+<div class="beloremepsum">
+   <!-- <div class="kaluteraturesom">
+        <h3 class="nagetap-kopulas">Зеленая карточка</h3>
+        <p class="dinapiecd-esadsica">Здесь можете кратко описать, на что можно перейти по ссылке.</p>
+        <button class="pulabelie-detumpod">ПОДРОБНЕЕ</button>
+    </div>-->
+
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/ajax.js"></script>
 
 </body>
 </html>
