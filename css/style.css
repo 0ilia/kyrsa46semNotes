@@ -1,192 +1,269 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css');
 
-*{
-	font-family: 'Open Sans', 'sans-serif', 'FontAwesome';
+* {
+    font-family: 'Open Sans', 'sans-serif', 'FontAwesome';
 }
-body{
-	background: rgb(248, 255, 154);
+
+body {
+    background: rgb(248, 255, 154);
 }
-h1{
-	color: rgb(255, 255, 255);
-	margin: 20px auto 0;
-	width: 200px;
-	text-align: center;
+
+h1 {
+    color: rgb(255, 255, 255);
+    margin: 20px auto 0;
+    width: 200px;
+    text-align: center;
 }
-#wrapper{
-	position: absolute;
-	width: 320px;
-	left: 50%;
-	margin-left: -160px;
-	top: 50%;
-	margin-top: -75px;
+
+#wrapper {
+    position: absolute;
+    width: 320px;
+    left: 50%;
+    margin-left: -160px;
+    top: 50%;
+    margin-top: -75px;
 }
 
 /* === Sign in Form === */
-#signinFormId{
-	height: 90px;
-	width: 300px;
-	border-radius: 8px;
-	position: relative;
-}
-#regFormId{
-	height: 180px;
-	width: 300px;
-	border-radius: 8px;
-	position: relative;
-}
-#signinFormId::before , #regFormId::before {
-	display: block;
-	position: relative;
-	height: 2px;
-	background: rgb(52, 56, 61);
-	content: '';
-	top: 44px;
-	margin-left: 20px;
-	z-index: 1;
-}
-#signinFormId input:first-of-type , #regFormId input:first-of-type {
-	border-top-right-radius: 8px;
-	border-top-left-radius: 8px;
-}
-#signinFormId input:last-of-type ,#regFormId input:last-of-type {
-	border-bottom-right-radius: 8px;
-	border-bottom-left-radius: 8px;
-}
-#signinFormId  input[type="text"], #signinFormId  input[type="password"], #signinFormId button[type="submit"],
-#regFormId  input[type="text"], #regFormId  input[type="password"], #regFormId button[type="submit"]
-{
-	background: rgb(28, 30, 33);
-	box-shadow: inset -100px -100px 0 rgb(28, 30, 33); /*Prevent yellow autofill color*/
-	color: rgb(255, 255,255);
-}
-#signinFormId  input[type="text"], #signinFormId  input[type="password"],
-#regFormId  input[type="text"], #regFormId  input[type="password"]
-{
-	position: relative;
-	display: block;
-	width: 280px;
-	height: 45px;
-	border: 0;
-	outline: 0;
-	top: -2px;
-	padding: 0 0 0 20px;
-	font-weight: 700;
-}
-#signinFormId  input[type="text"]:focus, #signinFormId  input[type="password"]:focus,
-#regFormId  input[type="text"]:focus, #regFormId  input[type="password"]:focus
-{
-	color: rgb(255, 255, 255);
-}
-#signinFormId button[type="submit"],#regFormId button[type="submit"]{
-	display: block;
-	position: absolute;
-	width: 52px;
-	height: 52px;
-	color: rgb(52, 56, 61);
-	border-radius: 50px;
-	outline: 0;
-	z-index: 2;
-	top: 19px;
-	right: -24px;
-	border: 6px solid rgb(248, 255, 154);
-	font-size: 25px;
-	text-indent: 0px;
-	padding-left: 9px;
-	padding-bottom: 3px;
-	text-align: center;
-}
-#signinFormId button[type="submit"]:hover,#regFormId button[type="submit"]:hover{
-	color: rgb(0, 126, 165);
-	text-shadow: 0 0 10px rgb(0, 126, 165);
-	cursor: pointer;
-}
-#signinFormId p ,#regFormId p {
-	color: rgb(79, 85, 97);
-	padding: 0 20px;
-	font-weight: 700;
-	font-size: 12px;
-	margin: 5px 0 0 0;
-}
-#signinFormId p > a,#regFormId p > a{
-	color: rgb(111, 119, 135);
-	text-decoration: none;
-}
-#signinFormId p > a:hover,#regFormId p > a:hover{
-	border-bottom: 1px solid;
+#signinFormId {
+    height: 90px;
+    width: 300px;
+    border-radius: 8px;
+    position: relative;
 }
 
-.register, .auth{
-	text-align: right;
+#regFormId {
+    height: 180px;
+    width: 300px;
+    border-radius: 8px;
+    position: relative;
 }
+
+#signinFormId::before, #regFormId::before {
+    display: block;
+    position: relative;
+    height: 2px;
+    background: rgb(52, 56, 61);
+    content: '';
+    top: 44px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+#signinFormId input:first-of-type, #regFormId input:first-of-type {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+#signinFormId input:last-of-type, #regFormId input:last-of-type {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#signinFormId input[type="text"], #signinFormId input[type="password"], #signinFormId button[type="submit"],
+#regFormId input[type="text"], #regFormId input[type="password"], #regFormId button[type="submit"] {
+    background: rgb(28, 30, 33);
+    box-shadow: inset -100px -100px 0 rgb(28, 30, 33); /*Prevent yellow autofill color*/
+    color: rgb(255, 255, 255);
+}
+
+#signinFormId input[type="text"], #signinFormId input[type="password"],
+#regFormId input[type="text"], #regFormId input[type="password"] {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 45px;
+    border: 0;
+    outline: 0;
+    top: -2px;
+    padding: 0 0 0 20px;
+    font-weight: 700;
+}
+
+#signinFormId input[type="text"]:focus, #signinFormId input[type="password"]:focus,
+#regFormId input[type="text"]:focus, #regFormId input[type="password"]:focus {
+    color: rgb(255, 255, 255);
+}
+
+#signinFormId button[type="submit"], #regFormId button[type="submit"] {
+    display: block;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    color: rgb(52, 56, 61);
+    border-radius: 50px;
+    outline: 0;
+    z-index: 2;
+    top: 19px;
+    right: -24px;
+    border: 6px solid rgb(248, 255, 154);
+    font-size: 25px;
+    text-indent: 0px;
+    padding-left: 9px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+#signinFormId button[type="submit"]:hover, #regFormId button[type="submit"]:hover {
+    color: rgb(0, 126, 165);
+    text-shadow: 0 0 10px rgb(0, 126, 165);
+    cursor: pointer;
+}
+
+#signinFormId p, #regFormId p {
+    color: rgb(79, 85, 97);
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 12px;
+    margin: 5px 0 0 0;
+}
+
+#signinFormId p > a, #regFormId p > a {
+    color: rgb(111, 119, 135);
+    text-decoration: none;
+}
+
+#signinFormId p > a:hover, #regFormId p > a:hover {
+    border-bottom: 1px solid;
+}
+
+.register, .auth {
+    text-align: right;
+}
+
 /*
 .auth{
 	text-align: right;
 }*/
 
 
-
-.beloremepsum{
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+.beloremepsum {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .kaluteraturesom {
-	max-width: 315px;
-	min-height: 247px;
-	background: #1c8e64;
-	padding: 15px;
-	box-sizing: border-box;
-	color: #fffefe;
-	margin: 15px;
-	border-radius: 5px;
-	box-shadow: 0px 0px 12px 3px rgba(103, 99, 99, 0.7);
-	text-shadow: 0 1px 0 #615d5d;
-	border: 2px solid rgb(245, 237, 237);
+    max-width: 315px;
+    min-height: 247px;
+    background: #1c8e64;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #fffefe;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 12px 3px rgba(103, 99, 99, 0.7);
+    text-shadow: 0 1px 0 #615d5d;
+    border: 2px solid rgb(245, 237, 237);
+
 }
 
-.kaluteraturesom:nth-child(2){
-	background: #224f9c;
+.kaluteraturesom:nth-child(2) {
+    background: #224f9c;
 }
-.kaluteraturesom:last-child{
-	background: #421e84;
+
+.kaluteraturesom:last-child {
+    background: #421e84;
 }
 
 .nagetap-kopulas {
-	margin-top: 0;
-	font-size: 17px;
-	font-weight: 700;
-	text-shadow: 0 1px 0 #211d1d;
+    margin-top: 0;
+    font-size: 17px;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #211d1d;
+    word-wrap: break-word;
 }
 
-.dinapiecd-esadsica{
-	font-size: 15px;
-	letter-spacing: 0.3px;
-	line-height: 1.4;
+.dinapiecd-esadsica {
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    word-wrap: break-word;
 }
-.pulabelie-detumpod{
-	all: unset;
-	display: block;
-	margin-left: auto;
-	border: 2.3px solid #f7f0f0;
-	padding: 10px 15px;
-	border-radius: 25px;
-	font-size: 12px;
-	font-weight: 700;
-	transition: all 0.5s;
-	cursor: pointer;
-	letter-spacing: 1.2px;
+
+.pulabelie-detumpod {
+    all: unset;
+    display: block;
+    margin-left: auto;
+    border: 2.3px solid #f7f0f0;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all 0.5s;
+    cursor: pointer;
+    letter-spacing: 1.2px;
 }
-.pulabelie-detumpod:hover{
-	color:#0a9a65;
-	background: #f3f7f5;
+
+.pulabelie-detumpod:hover {
+    color: #0a9a65;
+    background: #f3f7f5;
 }
-.kaluteraturesom:nth-child(2) .pulabelie-detumpod:hover{
-	color:#3266bf;
-	background: #f8fdfa;
+
+.kaluteraturesom:nth-child(2) .pulabelie-detumpod:hover {
+    color: #3266bf;
+    background: #f8fdfa;
 }
+
 .kaluteraturesom:last-child .pulabelie-detumpod:hover {
-	color: #5b2ead;
-	background: #f3f7f5;
+    color: #5b2ead;
+    background: #f3f7f5;
+}
+
+#myName, #idNote {
+    text-align: right;
+}
+
+#exit:hover {
+    color: red;
+    cursor: pointer;
+}
+#exit{
+	margin-left: 90%;
+}
+#idNote {
+    color: black;
+}
+
+#myForms {
+    display: inline-flex;
+}
+
+.close {
+    position: absolute;
+    /*top: 50%;
+    left: 50%;*/
+    width: 15px;
+    height: 15px;
+   /* border: 1px solid #ccc;*/
+    margin: -25px 0 0 -25px;
+}
+
+.close:before,
+.close:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+}
+
+.close:before {
+    left: calc(50% - 1px);
+    border-left: 2px dotted #00f;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.close:after {
+    right: calc(50% - 1px);
+    border-right: 2px dotted #00f;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close:hover:before,
+.close:hover:after {
+    border-color: #f00;
 }

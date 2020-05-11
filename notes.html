@@ -1,0 +1,66 @@
+<?php
+session_start();
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="myName">
+    <h3 id="helloMyaName">
+
+        <script>
+            function get_cookie ( cookie_name )
+            {
+                var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
+
+                if ( results )
+                    return ( unescape ( results[2] ) );
+                else
+                    return null;
+            }
+            document.getElementById("helloMyaName").innerHTML ="Привет, " + get_cookie("login");
+        </script>
+    </h3>
+<div id="exit"> Выход</div>
+</div>
+
+<div id="myForms">
+<form id="addNote" autocomplete="off">
+    <input type="text" id="themeIdNote" name="themeNameNote" placeholder="Тема"/><br>
+    <input type="text" id="messageIdNote" name="messageNameNote" placeholder="Сообщение"/><br>
+    <button name="addNotesButtonName" type="submit" id="buttonSubmitAddNotesID">Добавить</button>
+</form>
+    <form id="deleteNote" autocomplete="off">
+        <input type="text" id="IdIdNote" name="IdNameNote" placeholder="Id"/><br>
+        <button name="deleteNotesButtonName" type="submit" id="buttonSubmitDeleteNotesID">Удалить</button>
+    </form>
+
+    <form id="updateNote" autocomplete="off">
+        <input type="text" id="IdIdNoteUpdate" name="idNameNote" placeholder="id"/><br>
+        <input type="text" id="themeIdNoteUpdate" name="themeNameNote" placeholder="Тема"/><br>
+        <input type="text" id="messageIdNoteUpdate" name="messageNameNote" placeholder="Сообщение"/><br>
+        <button name="updateNotesButtonName" type="submit" id="buttonSubmitUpdateNotesID">Обновить</button>
+    </form>
+</div>
+<div class="beloremepsum">
+    <!-- <div class="kaluteraturesom">
+         <h3 class="nagetap-kopulas">Зеленая карточка</h3>
+         <p class="dinapiecd-esadsica">Здесь можете кратко описать, на что можно перейти по ссылке.</p>
+         <button class="pulabelie-detumpod">ПОДРОБНЕЕ</button>
+     </div>-->
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/getAllNotes.js"></script>
+
+<script src="js/note/addNote.js"></script>
+<script src="js/note/deleteNote.js"></script>
+<script src="js/note/updateNote.js"></script>
+</body>
+</html>

@@ -21,51 +21,16 @@ $(document).ready(function () {
             type: "GET",
             contentType: "application/json",
             dataType: "json",
-            url: "http://127.0.0.1:3005/loginUser/" + $("#loginsigninId").val() + "/" + $("#passwordigninId").val(),
-            /*   data: JSON.stringify({
-                   "login": $("#loginsigninId").val(),
-                   "password": $("#passwordigninId").val(),
-
-               }),*/
+            url: "https://sequelizerestapi.herokuapp.com/loginUser/" + $("#loginsigninId").val() + "/" + $("#passwordigninId").val(),
             statusCode: {
                 200: function (data) {
                     $("#errorId").text(data["messageError"]);
                     if (data["register"]) {
-                        $("#wrapper").css("display", "none");
-                        $.ajax({
-                            type: "GET",
-                            contentType: "application/json",
-                            dataType: "json",
-                            url: "http://127.0.0.1:3005/getAllNotes/" + $("#loginsigninId").val(),
+                        document.cookie = "login="+$("#loginsigninId").val();
+                        document.cookie = "password="+$("#passwordigninId").val();
 
-                            statusCode: {
-                                200: function (data) {
-                                    /*  $("#errorId").text(data["messageError"]);
+                        document.location.replace("./notes.html?login="+ $("#loginsigninId").val());
 
-                                      if(data["register"]){
-
-
-                                          window.location.replace("./notes.php");
-                                      }*/
-                                    let dataResult="";
-                                    $(".beloremepsum").css("display", "inline-flex");
-                                    for (let i in data.notes) {
-                                        $('#beloremepsum').append(' <div class="kaluteraturesom">');
-
-                                        console.log(data.notes[i].theme);
-                                        console.log(data.notes[i].message);
-                                        dataResult += ' <div class="kaluteraturesom">'+'<h3 class="nagetap-kopulas">'+data.notes[i].theme+'</h3>'+
-                                            '<p class="dinapiecd-esadsica">'+data.notes[i].message+'</p></div>'
-                                         //   data.notes[i].theme + "<br>" + data.notes[i].message + "<br>";
-                                    }
-                                    $(".beloremepsum").html(dataResult);
-
-                                }
-                            },
-
-                        });
-
-                        // window.location.replace("./notes.php");
                     }
                 }
             },
@@ -79,14 +44,13 @@ $(document).ready(function () {
             type: "POST",
             contentType: "application/json",
             dataType: "json",
-            url: "http://127.0.0.1:3005/addUser/",
+            url: "https://sequelizerestapi.herokuapp.com/addUser/",
 
             data: JSON.stringify({
                 "login": $("#loginregId").val(),
                 "email": $("#emailregId").val(),
                 "password": $("#passwordregId").val(),
-                "confirmPassword": $("#confirm_passwordregId").val(),
-                "cookie": "test"
+                "confirmPassword": $("#confirm_passwordregId").val()
 
             }),
 
